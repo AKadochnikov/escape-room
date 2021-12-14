@@ -15,8 +15,8 @@ const DetailedQuest = () => {
 
   const onCloseBtnClick = () => {
     setIsBookingModalOpened(false);
-  }
-  console.log(isBookingModalOpened);
+  };
+
   return (
     <MainLayout>
       <S.Main>
