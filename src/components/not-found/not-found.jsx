@@ -35,7 +35,7 @@ const aStyle = {
   transition: '0.2s all',
 };
 
-function NotFound () {
+const NotFound = () => {
   return (
     <div style={notFoundIdStyle} id="notfound">
       <div style={notFoundClassStyle} className="notfound">

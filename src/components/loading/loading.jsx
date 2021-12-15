@@ -1,5 +1,5 @@
 const loadingContainer = {
-  background: 'content-box radial-gradient(skyblue, white)',
+  background: 'content-box radial-gradient(black, darkred)',
   position: 'relative',
   height: '100vh',
 };
@@ -17,11 +17,18 @@ const loadingItem = {
   lineHeight: 1.4,
 };
 
-function Loading() {
+const loadingText = {
+  fontFamily: '\'Cabin\', sans-serif',
+  color: '#fff',
+  fontSize: '14px',
+  fontWeight: 700,
+}
+
+const Loading= () => {
   return (
     <div style={loadingContainer}>
       <div style={loadingItem}>
-        <img src="img/puff.svg" alt="Loading..."/>
+        <span style={loadingText}>Loading...</span>
       </div>
     </div>
   );
