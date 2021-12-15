@@ -1,4 +1,4 @@
-import { QUEST, ACTION_TYPE } from '../../../const';
+import { QUEST, ACTION_TYPE } from '../../const';
 
 const initialState = {
   questType: QUEST.all,

@@ -1,4 +1,4 @@
-import { API_ROUTE } from '../../const';
+import { API_ROUTE } from '../const';
 import { loadQuests } from './actions';
 
 export const fetchQuestsAction = () =>

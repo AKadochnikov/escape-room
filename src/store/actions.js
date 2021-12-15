@@ -1,4 +1,4 @@
-import { ACTION_TYPE } from '../../const';
+import { ACTION_TYPE } from '../const';
 
 export const loadQuests = (quests) => ({
   type: ACTION_TYPE.loadQuests,
