@@ -7,7 +7,6 @@ const Header = () => {
   const [activeLink, setActiveLink] = useState(APP_ROUTE.home)
 
   const handleActiveLink = (evt) => {
-    evt.preventDefault();
     const type = evt.target.dataset.type;
     console.log(type);
     setActiveLink(type);
