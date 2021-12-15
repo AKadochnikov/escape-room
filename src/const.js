@@ -15,7 +15,8 @@ export const QUEST = {
 }
 
 export const ACTION_TYPE = {
-  loadQuests: 'data/loadQuests'
+  loadQuests: 'data/loadQuests',
+  changeQuestType: 'user/changeQuestType',
 }
 
 export const NAME_SPACE = {

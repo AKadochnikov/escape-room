@@ -17,6 +17,13 @@ const data = (state = initialState, action) => {
       }
     }
 
+    case ACTION_TYPE.changeQuestType: {
+      const {type} = action.payload;
+      return {...state,
+      questType: type,
+      }
+    }
+
     default:
       return state;
   }

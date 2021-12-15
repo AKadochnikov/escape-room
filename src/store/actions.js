@@ -6,3 +6,10 @@ export const loadQuests = (quests) => ({
     quests,
   }
 })
+
+export const changeQuestType = (type) => ({
+  type: ACTION_TYPE.changeQuestType,
+  payload: {
+    type,
+  },
+})
