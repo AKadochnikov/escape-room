@@ -13,3 +13,14 @@ export const changeQuestType = (type) => ({
     type,
   },
 })
+
+export const loadActiveQuest = (quest) => ({
+  type: ACTION_TYPE.loadActiveQuest,
+  payload: {
+    quest,
+  }
+})
+
+export const resetActiveQuest = () => ({
+  type: ACTION_TYPE.resetActiveQuest,
+})

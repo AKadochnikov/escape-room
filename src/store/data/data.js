@@ -4,6 +4,8 @@ const initialState = {
   questType: QUEST.all,
   quests: [],
   isDataLoaded: false,
+  activeQuest: null,
+  isActiveQuestLoaded: false,
 }
 
 const data = (state = initialState, action) => {
@@ -21,6 +23,21 @@ const data = (state = initialState, action) => {
       const {type} = action.payload;
       return {...state,
       questType: type,
+      }
+    }
+
+    case ACTION_TYPE.resetActiveQuest: {
+      return {...state,
+        activeQuest: null,
+        isActiveQuestLoaded: false,
+      }
+    }
+
+    case ACTION_TYPE.loadActiveQuest: {
+      const {quest} = action.payload;
+      return {...state,
+        activeQuest: quest,
+        isActiveQuestLoaded: true,
       }
     }
 

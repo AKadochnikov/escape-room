@@ -1,5 +1,5 @@
 import { API_ROUTE } from '../const';
-import { loadQuests } from './actions';
+import { loadQuests, loadActiveQuest, resetActiveQuest } from './actions';
 
 export const fetchQuestsAction = () =>
   async (dispatch) => {
@@ -12,4 +12,14 @@ export const fetchQuestsAction = () =>
       });
   };
 
-
+export const fetchActiveQuestAction = (id) =>
+  async (dispatch) => {
+  dispatch(resetActiveQuest());
+  fetch(`${API_ROUTE.currentQuest}${id}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      dispatch(loadActiveQuest(data));
+    });
+  }

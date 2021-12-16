@@ -2,7 +2,8 @@ export const APP_ROUTE = {
   home: '/',
   quest: '/quest',
   contacts: '/contacts',
-  notFound: '/404'
+  notFound: '/404',
+  detailedQuest: '/quest/:id'
 };
 
 export const QUEST = {
@@ -17,6 +18,8 @@ export const QUEST = {
 export const ACTION_TYPE = {
   loadQuests: 'data/loadQuests',
   changeQuestType: 'user/changeQuestType',
+  loadActiveQuest: 'data/loadActiveQuest',
+  resetActiveQuest: 'data/resetActiveQuest'
 }
 
 export const NAME_SPACE = {
@@ -38,7 +41,6 @@ export const LEVELS = {
     name: 'medium',
     russian: 'Средний'
   },
-
   hard: {
     name: 'hard',
     russian: 'Сложный'

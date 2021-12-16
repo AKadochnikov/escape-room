@@ -35,7 +35,7 @@ const App = (props) => {
       <S.GlobalStyle />
       <Router>
         <Switch>
-          <Route exact path={APP_ROUTE.quest}>
+          <Route exact path={APP_ROUTE.detailedQuest}>
             <DetailedQuest />
           </Route>
           <Route exact path={APP_ROUTE.contacts}>
