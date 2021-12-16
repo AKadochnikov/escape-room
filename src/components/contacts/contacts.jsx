@@ -1,9 +1,10 @@
 import { MainLayout, PageTitle, PageSubtext } from 'components/common/common';
 import contactsMap from 'assets/img/contacts-map.jpg';
 import * as S from './contacts.styled';
+import { APP_ROUTE } from '../../const';
 
 const Contacts = () => (
-  <MainLayout>
+  <MainLayout activeLink={APP_ROUTE.contacts}>
     <S.Main>
       <S.ContentWrapper>
         <S.PageHeading>

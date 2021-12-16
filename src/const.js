@@ -28,3 +28,5 @@ export const API_ROUTE = {
   currentQuest: 'http://localhost:3001/quests/',
   postOrder: 'http://localhost:3001/orders',
 }
+
+export const QUEST_TABS = ['Все квесты', 'Приключения',]

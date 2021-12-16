@@ -1,19 +1,10 @@
 import logo from 'assets/img/logo.svg';
 import * as S from './header.styled';
 import { APP_ROUTE } from '../../../const';
-import { useState } from 'react';
 
-const Header = () => {
-  const [activeLink, setActiveLink] = useState(APP_ROUTE.home)
 
-  const handleActiveLink = (evt) => {
-    const type = evt.target.dataset.type;
-    console.log(type);
-    setActiveLink(type);
-  }
-
-  console.log(activeLink);
-
+const Header = (props) => {
+  const {activeLink} = props;
   return (
     <S.StyledHeader>
       <S.HeaderWrapper>
@@ -24,14 +15,9 @@ const Header = () => {
         <S.Navigation>
           <S.Links>
             <S.LinkItem>
-              {activeLink === APP_ROUTE.home?
-                <S.Link $isActiveLink to={APP_ROUTE.home} data-type={APP_ROUTE.home} onClick={handleActiveLink}>
+                <S.Link $isActiveLink={activeLink === APP_ROUTE.home? true: false} to={APP_ROUTE.home}>
                 Квесты
-                </S.Link> :
-                <S.Link to={APP_ROUTE.home} data-type={APP_ROUTE.home} onClick={handleActiveLink}>
-                  Квесты
                 </S.Link>
-              }
             </S.LinkItem>
 
             <S.LinkItem>
@@ -45,16 +31,10 @@ const Header = () => {
             <S.LinkItem>
               <S.Link to="#">Акции</S.Link>
             </S.LinkItem>
-
             <S.LinkItem>
-              {activeLink === APP_ROUTE.contacts?
-                <S.Link $isActiveLink to={APP_ROUTE.contacts} data-type={APP_ROUTE.contacts} onClick={handleActiveLink}>
-                  Контакты
-                </S.Link> :
-                <S.Link to={APP_ROUTE.contacts} data-type={APP_ROUTE.contacts} onClick={handleActiveLink}>
+                <S.Link $isActiveLink={activeLink === APP_ROUTE.contacts? true : false} to={APP_ROUTE.contacts}>
                   Контакты
                 </S.Link>
-              }
             </S.LinkItem>
           </S.Links>
         </S.Navigation>
