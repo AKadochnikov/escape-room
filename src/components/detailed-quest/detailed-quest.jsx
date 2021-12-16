@@ -1,13 +1,52 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MainLayout } from 'components/common/common';
 import { ReactComponent as IconClock } from 'assets/img/icon-clock.svg';
 import { ReactComponent as IconPerson } from 'assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from 'assets/img/icon-puzzle.svg';
 import * as S from './detailed-quest.styled';
 import { BookingModal } from './components/components';
+import { fetchActiveQuestAction } from '../../store/api-actions';
+import { getActiveQuest, getIsActiveQuestLoaded } from '../../store/data/selectors';
+import { connect } from 'react-redux';
+import { Redirect, useParams } from 'react-router-dom';
+import Loading from '../loading/loading';
+import { APP_ROUTE } from '../../const';
+import { humanizeLevel, humanizeType } from '../../utils';
 
-const DetailedQuest = () => {
+const mapDispatchToProps = (dispatch) => ({
+  fetchActiveQuest(id) {
+    dispatch(fetchActiveQuestAction(id));
+  }
+});
+
+const mapStateToProps = (state) => ({
+  activeQuest: getActiveQuest(state),
+  isActiveQuestLoaded: getIsActiveQuestLoaded(state),
+});
+
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+const DetailedQuest = (props) => {
+  const {activeQuest, isActiveQuestLoaded, fetchActiveQuest} = props;
   const [isBookingModalOpened, setIsBookingModalOpened] = useState(false);
+  const params = useParams();
+  const currentId = Number(params.id);
+
+  useEffect(() => fetchActiveQuest(currentId), [currentId, fetchActiveQuest]);
+
+  if (!isActiveQuestLoaded) {
+    return (
+      <Loading/>
+    );
+  }
+
+  if(activeQuest === null) {
+    return (<Redirect to={APP_ROUTE.notFound}/>);
+  }
+
+  const {coverImg, title, type, duration, peopleCount, level, description} = activeQuest;
+  const russianLevel = humanizeLevel(level);
+  const russianType = humanizeType(type);
 
   const onBookingBtnClick = () => {
     setIsBookingModalOpened(!isBookingModalOpened);
@@ -17,40 +56,35 @@ const DetailedQuest = () => {
     <MainLayout>
       <S.Main>
         <S.PageImage
-          src="img/cover-maniac.jpg"
-          alt="Квест Маньяк"
+          src={`/${coverImg}`}
+          alt={`Квест ${title}`}
           width="1366"
           height="768"
         />
         <S.PageContentWrapper>
           <S.PageHeading>
-            <S.PageTitle>Маньяк</S.PageTitle>
-            <S.PageSubtitle>приключения</S.PageSubtitle>
+            <S.PageTitle>{title}</S.PageTitle>
+            <S.PageSubtitle>{russianType}</S.PageSubtitle>
           </S.PageHeading>
 
           <S.PageDescription>
             <S.Features>
               <S.FeaturesItem>
                 <IconClock width="20" height="20" />
-                <S.FeatureTitle>90 мин</S.FeatureTitle>
+                <S.FeatureTitle>{duration} мин</S.FeatureTitle>
               </S.FeaturesItem>
               <S.FeaturesItem>
                 <IconPerson width="19" height="24" />
-                <S.FeatureTitle>3–6 чел</S.FeatureTitle>
+                <S.FeatureTitle>{peopleCount[0]}–{peopleCount[1]} чел</S.FeatureTitle>
               </S.FeaturesItem>
               <S.FeaturesItem>
                 <IconPuzzle width="24" height="24" />
-                <S.FeatureTitle>средний</S.FeatureTitle>
+                <S.FeatureTitle>{russianLevel}</S.FeatureTitle>
               </S.FeaturesItem>
             </S.Features>
 
             <S.QuestDescription>
-              В комнате с приглушённым светом несколько человек, незнакомых друг
-              с другом, приходят в себя. Никто не помнит, что произошло прошлым
-              вечером. Руки и ноги связаным, но одному из вас получилось
-              освободиться. На стене висит пугающий таймер и запущен отстёт
-              60&nbsp;минут. Сможете ли вы разобраться в стрессовой ситуации,
-              помочь другим, разобраться что произошло и выбраться из комнаты?
+              {description}
             </S.QuestDescription>
 
             <S.QuestBookingBtn onClick={onBookingBtnClick}>
@@ -65,4 +99,4 @@ const DetailedQuest = () => {
   );
 };
 
-export default DetailedQuest;
+export default connector(DetailedQuest);

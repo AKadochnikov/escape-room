@@ -6,7 +6,7 @@ import { APP_ROUTE } from '../../../../../const';
 
 const QuestCard = (props) => {
   const {item} = props;
-  const level = humanizeLevel(item);
+  const level = humanizeLevel(item.level);
   return (
     <S.QuestItem>
       <S.QuestItemLink to={`${APP_ROUTE.quest}/${item.id}`}>
@@ -28,7 +28,7 @@ const QuestCard = (props) => {
               </S.QuestFeatureItem>
               <S.QuestFeatureItem>
                 <IconPuzzle />
-                {level}                }
+                {level}
               </S.QuestFeatureItem>
             </S.QuestFeatures>
           </S.QuestContent>

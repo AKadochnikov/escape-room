@@ -7,12 +7,30 @@ export const APP_ROUTE = {
 };
 
 export const QUEST = {
-  all: 'all',
-  horror: 'horror',
-  adventures: 'adventures',
-  mystic: 'mystic',
-  detective: 'detective',
-  sciFi: 'sci-fi'
+  all: {
+    name: 'all',
+    russian: 'Все'
+  },
+  horror: {
+    name: 'horror',
+    russian: 'Ужасы'
+  },
+  adventures: {
+    name: 'adventures',
+    russian: 'Приключения'
+  },
+  mystic: {
+    name: 'mystic',
+    russian: 'Мистика'
+  },
+  detective: {
+    name: 'detective',
+    russian: 'Детектив'
+  },
+  sciFi: {
+    name: 'sci-fi',
+    russian: 'Sci-fi'
+  },
 }
 
 export const ACTION_TYPE = {
@@ -35,14 +53,16 @@ export const API_ROUTE = {
 export const LEVELS = {
   easy: {
     name: 'easy',
-    russian: 'Простой'
+    russian: 'Простой',
   },
   medium: {
     name: 'medium',
-    russian: 'Средний'
+    russian: 'Средний',
   },
   hard: {
     name: 'hard',
-    russian: 'Сложный'
+    russian: 'Сложный',
   },
 }
+
+

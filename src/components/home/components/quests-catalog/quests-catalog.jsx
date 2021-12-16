@@ -25,42 +25,42 @@ const QuestsCatalog = (props) => {
     <>
       <S.Tabs>
         <S.TabItem>
-          <S.TabBtn isActive={activeTab === QUEST.all ? true : false} data-type={QUEST.all}>
+          <S.TabBtn isActive={activeTab === QUEST.all.name ? true : false} data-type={QUEST.all.name}>
             <IconAllQuests />
             <S.TabTitle>Все квесты</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
-          <S.TabBtn isActive={activeTab === QUEST.adventures ? true : false} data-type={QUEST.adventures}>
+          <S.TabBtn isActive={activeTab === QUEST.adventures.name ? true : false} data-type={QUEST.adventures.name}>
             <IconAdventures />
             <S.TabTitle>Приключения</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
-          <S.TabBtn isActive={activeTab === QUEST.horror ? true : false} data-type={QUEST.horror}>
+          <S.TabBtn isActive={activeTab === QUEST.horror.name ? true : false} data-type={QUEST.horror.name}>
             <IconHorrors />
             <S.TabTitle>Ужасы</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
-          <S.TabBtn isActive={activeTab === QUEST.mystic ? true : false} data-type={QUEST.mystic}>
+          <S.TabBtn isActive={activeTab === QUEST.mystic.name ? true : false} data-type={QUEST.mystic.name}>
             <IconMystic />
             <S.TabTitle>Мистика</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
-          <S.TabBtn isActive={activeTab === QUEST.detective ? true : false} data-type={QUEST.detective}>
+          <S.TabBtn isActive={activeTab === QUEST.detective.name ? true : false} data-type={QUEST.detective.name}>
             <IconDetective />
             <S.TabTitle>Детектив</S.TabTitle>
           </S.TabBtn>
         </S.TabItem>
 
         <S.TabItem>
-          <S.TabBtn isActive={activeTab === QUEST.sciFi ? true : false} data-type={QUEST.sciFi}>
+          <S.TabBtn isActive={activeTab === QUEST.sciFi.name ? true : false} data-type={QUEST.sciFi.name}>
             <IconScifi />
             <S.TabTitle>Sci-fi</S.TabTitle>
           </S.TabBtn>
