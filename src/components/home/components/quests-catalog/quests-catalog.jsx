@@ -7,9 +7,20 @@ import { ReactComponent as IconScifi } from 'assets/img/icon-scifi.svg';
 import * as S from './quests-catalog.styled';
 import { QUEST } from '../../../../const';
 import QuestCard from './quest-card/quest-card';
+import { getFilteredQuests, getQuestType } from '../../../../store/data/selectors';
+import { connect } from 'react-redux';
 
-const QuestsCatalog = () => {
-  const activeTab = QUEST.all;
+const mapStateToProps = (state) => ({
+  quests: getFilteredQuests(state),
+  type: getQuestType(state),
+});
+
+const connector = connect(mapStateToProps);
+
+const QuestsCatalog = (props) => {
+  const {quests, type} = props;
+
+  const activeTab = type;
   return (
     <>
       <S.Tabs>
@@ -57,10 +68,10 @@ const QuestsCatalog = () => {
       </S.Tabs>
 
       <S.QuestsList>
-        <QuestCard/>
+        {quests.slice().map((item) => <QuestCard key={item.id} item={item}/>)}
       </S.QuestsList>
     </>
   );
 }
 
-export default QuestsCatalog;
+export default connector(QuestsCatalog);

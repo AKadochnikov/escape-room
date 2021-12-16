@@ -29,4 +29,18 @@ export const API_ROUTE = {
   postOrder: 'http://localhost:3001/orders',
 }
 
-export const QUEST_TABS = ['Все квесты', 'Приключения',]
+export const LEVELS = {
+  easy: {
+    name: 'easy',
+    russian: 'Простой'
+  },
+  medium: {
+    name: 'medium',
+    russian: 'Средний'
+  },
+
+  hard: {
+    name: 'hard',
+    russian: 'Сложный'
+  },
+}

@@ -1,30 +1,33 @@
 import * as S from './quest-card.styled';
 import { ReactComponent as IconPerson } from '../../../../../assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from '../../../../../assets/img/icon-puzzle.svg';
+import { humanizeLevel } from '../../../../../utils';
 
-const QuestCard = () => {
+const QuestCard = (props) => {
+  const {item} = props;
+  const level = humanizeLevel(item);
   return (
     <S.QuestItem>
       <S.QuestItemLink to="/quest">
         <S.Quest>
           <S.QuestImage
-            src="img/preview-sklep.jpg"
+            src={item.coverImg}
             width="344"
             height="232"
-            alt="квест Склеп"
+            alt={`квест ${item.title}`}
           />
 
           <S.QuestContent>
-            <S.QuestTitle>Склеп</S.QuestTitle>
+            <S.QuestTitle>{item.title}</S.QuestTitle>
 
             <S.QuestFeatures>
               <S.QuestFeatureItem>
                 <IconPerson />
-                2–5 чел
+                {`${item.peopleCount[0]} - ${item.peopleCount[1]} чел`}
               </S.QuestFeatureItem>
               <S.QuestFeatureItem>
                 <IconPuzzle />
-                сложный
+                {level}                }
               </S.QuestFeatureItem>
             </S.QuestFeatures>
           </S.QuestContent>
