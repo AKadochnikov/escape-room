@@ -11,7 +11,7 @@ export const getIsActiveQuestLoaded = (state) => state[NAME_SPACE.data].isActive
 export const getFilteredQuests = createSelector(
   [getQuests, getQuestType],
   (quests, questType) => {
-    if (questType === QUEST.all) {
+    if (questType === QUEST.all.name) {
       return quests;
     }
     return quests.slice().filter((item)=> item.type === questType);

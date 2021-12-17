@@ -1,7 +1,7 @@
 import { QUEST, ACTION_TYPE } from '../../const';
 
 const initialState = {
-  questType: QUEST.all,
+  questType: QUEST.all.name,
   quests: [],
   isDataLoaded: false,
   activeQuest: null,
