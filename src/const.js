@@ -1,3 +1,13 @@
+export const POST_ORDER_FAIL_MESSAGE = 'Отправка не удалась. Попробуйте еще раз';
+export const POST_ORDER_SUCCESS_MESSAGE = 'Заявка успешно отправлена';
+export const MARKER = './img/pim-map.svg';
+
+export const LOCATION = {
+  latitude: 59.96815,
+  longitude: 30.31650,
+  zoom: 50,
+}
+
 export const APP_ROUTE = {
   home: '/',
   quest: '/quest',
@@ -72,7 +82,6 @@ export const POST_ORDER_STATUS = {
   success: 'success',
 }
 
-export const POST_ORDER_FAIL_MESSAGE = 'Отправка не удалась. Попробуйте еще раз';
-export const POST_ORDER_SUCCESS_MESSAGE = 'Заявка успешно отправлена';
+
 
 

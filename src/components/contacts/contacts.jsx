@@ -1,7 +1,7 @@
 import { MainLayout, PageTitle, PageSubtext } from 'components/common/common';
-import contactsMap from 'assets/img/contacts-map.jpg';
 import * as S from './contacts.styled';
 import { APP_ROUTE } from '../../const';
+import Map from '../map/map';
 
 const Contacts = () => (
   <MainLayout activeLink={APP_ROUTE.contacts}>
@@ -42,12 +42,7 @@ const Contacts = () => (
           </S.ContactsList>
 
           <S.ContactsMap>
-            <S.ContactsMapImage
-              src={contactsMap}
-              alt="мы находимся по адресу Санкт-Петербург, Набережная реки Карповка, д 5"
-              width="649"
-              height="336"
-            />
+            <Map />
           </S.ContactsMap>
         </S.Contacts>
       </S.ContentWrapper>
