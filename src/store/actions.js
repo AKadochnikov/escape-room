@@ -24,3 +24,10 @@ export const loadActiveQuest = (quest) => ({
 export const resetActiveQuest = () => ({
   type: ACTION_TYPE.resetActiveQuest,
 })
+
+export const updatePostOrderStatus = (status) => ({
+  type: ACTION_TYPE.updatePostOrderStatus,
+  payload: {
+    status,
+  }
+})

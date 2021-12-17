@@ -1,4 +1,4 @@
-import { QUEST, ACTION_TYPE } from '../../const';
+import { QUEST, ACTION_TYPE, POST_ORDER_STATUS } from '../../const';
 
 const initialState = {
   questType: QUEST.all.name,
@@ -6,6 +6,7 @@ const initialState = {
   isDataLoaded: false,
   activeQuest: null,
   isActiveQuestLoaded: false,
+  postOrderStatus: POST_ORDER_STATUS.ready
 }
 
 const data = (state = initialState, action) => {
@@ -38,6 +39,13 @@ const data = (state = initialState, action) => {
       return {...state,
         activeQuest: quest,
         isActiveQuestLoaded: true,
+      }
+    }
+
+    case ACTION_TYPE.updatePostOrderStatus: {
+      const {status} = action.payload;
+      return {...state,
+        postOrderStatus: status,
       }
     }
 

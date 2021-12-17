@@ -40,3 +40,14 @@ export const humanizeType = (type) => {
     }
   }
 }
+
+
+export const checkTelValidation = (value, item) => {
+  const regTel = /^[0-9]{0,10}$/;
+  if (!regTel.test(value)){
+    item?.setCustomValidity('Пожалуйста. Введите телефон без кода страны');
+  } else {
+    item?.setCustomValidity('');
+  }
+  item?.reportValidity();
+};

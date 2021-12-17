@@ -7,6 +7,8 @@ import thunk from 'redux-thunk';
 import { rootReducer } from './store/root-reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { fetchQuestsAction } from './store/api-actions';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
@@ -15,6 +17,7 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 render(
   <StrictMode>
     <Provider store={store}>
+      <ToastContainer/>
       <App />
     </Provider>
   </StrictMode>,

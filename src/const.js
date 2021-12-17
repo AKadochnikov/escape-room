@@ -37,7 +37,8 @@ export const ACTION_TYPE = {
   loadQuests: 'data/loadQuests',
   changeQuestType: 'user/changeQuestType',
   loadActiveQuest: 'data/loadActiveQuest',
-  resetActiveQuest: 'data/resetActiveQuest'
+  resetActiveQuest: 'data/resetActiveQuest',
+  updatePostOrderStatus: 'data/updatePostOrderStatus',
 }
 
 export const NAME_SPACE = {
@@ -64,5 +65,14 @@ export const LEVELS = {
     russian: 'Сложный',
   },
 }
+
+export const POST_ORDER_STATUS = {
+  posting: 'posting',
+  ready: 'ready',
+  success: 'success',
+}
+
+export const POST_ORDER_FAIL_MESSAGE = 'Отправка не удалась. Попробуйте еще раз';
+export const POST_ORDER_SUCCESS_MESSAGE = 'Заявка успешно отправлена';
 
 
