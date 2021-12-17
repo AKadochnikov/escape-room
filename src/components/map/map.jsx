@@ -2,10 +2,10 @@ import { useRef, useMemo, useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 import useMap from '../../hooks/useMap';
 import { Icon, layerGroup, Marker } from 'leaflet';
-import { LOCATION } from '../../const';
+import { LOCATION, MARKER } from '../../const';
 
 const customIcon = new Icon({
-  iconUrl: '/img/pin-map.svg',
+  iconUrl: MARKER,
   iconSize: [40, 78],
   iconAnchor: [20, 78],
 });

@@ -1,6 +1,6 @@
 export const POST_ORDER_FAIL_MESSAGE = 'Отправка не удалась. Попробуйте еще раз';
 export const POST_ORDER_SUCCESS_MESSAGE = 'Заявка успешно отправлена';
-export const MARKER = './img/pim-map.svg';
+export const MARKER = '/img/pin-map.svg';
 
 export const LOCATION = {
   latitude: 59.96815,
