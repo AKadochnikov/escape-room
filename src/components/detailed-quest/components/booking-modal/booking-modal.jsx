@@ -1,7 +1,7 @@
 import * as S from './booking-modal.styled';
 import { ReactComponent as IconClose } from 'assets/img/icon-close.svg';
 import { updatePostOrderStatus } from '../../../../store/actions';
-import { POST_ORDER_STATUS } from '../../../../const';
+import { PostOrderStatus } from '../../../../const';
 import { postOrderAction } from '../../../../store/api-actions';
 import { getPostOrderStatus } from '../../../../store/data/selectors';
 import { connect } from 'react-redux';
@@ -10,11 +10,11 @@ import { checkTelValidation } from '../../../../utils';
 
 const mapDispatchToProps = (dispatch) => ({
   onSubmit(postData){
-    dispatch(updatePostOrderStatus(POST_ORDER_STATUS.posting));
+    dispatch(updatePostOrderStatus(PostOrderStatus.Posting));
     dispatch(postOrderAction(postData));
   },
   onSuccess(){
-    dispatch(updatePostOrderStatus(POST_ORDER_STATUS.ready));
+    dispatch(updatePostOrderStatus(PostOrderStatus.Ready));
   },
 });
 
@@ -47,12 +47,12 @@ const BookingModal = (props) => {
 
   let isPosting = false;
 
-  if(postOrderStatus === POST_ORDER_STATUS.posting) {
+  if(postOrderStatus === PostOrderStatus.Posting) {
     isPosting = true;
   }
 
   useEffect(() => {
-    if(postOrderStatus === POST_ORDER_STATUS.success) {
+    if(postOrderStatus === PostOrderStatus.Success) {
       onSuccess();
       onClick();
     }

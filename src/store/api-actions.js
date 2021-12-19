@@ -1,10 +1,10 @@
-import { API_ROUTE, POST_ORDER_STATUS, POST_ORDER_FAIL_MESSAGE, POST_ORDER_SUCCESS_MESSAGE } from '../const';
+import { ApiRoute, PostOrderStatus, POST_ORDER_FAIL_MESSAGE, POST_ORDER_SUCCESS_MESSAGE } from '../const';
 import { loadQuests, loadActiveQuest, resetActiveQuest, updatePostOrderStatus } from './actions';
 import { toast } from 'react-toastify';
 
 export const fetchQuestsAction = () =>
   async (dispatch) => {
-    fetch(API_ROUTE.quests)
+    fetch(ApiRoute.Quests)
       .then((response) => {
         return response.json();
       })
@@ -16,7 +16,7 @@ export const fetchQuestsAction = () =>
 export const fetchActiveQuestAction = (id) =>
   async (dispatch) => {
   dispatch(resetActiveQuest());
-  fetch(`${API_ROUTE.currentQuest}${id}`)
+  fetch(`${ApiRoute.CurrentQuest}${id}`)
     .then((response) => {
       return response.json();
     })
@@ -27,17 +27,17 @@ export const fetchActiveQuestAction = (id) =>
 
 export const postOrderAction = (data) =>
   async (dispatch) => {
-    fetch(API_ROUTE.postOrder, {
+    fetch(ApiRoute.PostOrder, {
       method: 'POST',
       body: JSON.stringify(data),
       headers: new Headers({'Content-Type': 'application/json'})
     })
       .then(()=> {
-        dispatch(updatePostOrderStatus(POST_ORDER_STATUS.success));
+        dispatch(updatePostOrderStatus(PostOrderStatus.Success));
         toast.info(POST_ORDER_SUCCESS_MESSAGE);
       })
       .catch(()=> {
-        dispatch(updatePostOrderStatus(POST_ORDER_STATUS.ready));
+        dispatch(updatePostOrderStatus(PostOrderStatus.Ready));
         toast.info(POST_ORDER_FAIL_MESSAGE);
       })
   }

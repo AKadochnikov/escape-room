@@ -10,18 +10,18 @@ import { getActiveQuest, getIsActiveQuestLoaded } from '../../store/data/selecto
 import { connect } from 'react-redux';
 import { Redirect, useParams } from 'react-router-dom';
 import Loading from '../loading/loading';
-import { APP_ROUTE } from '../../const';
+import { AppRoute } from '../../const';
 import { humanizeLevel, humanizeType } from '../../utils';
+
+const mapStateToProps = (state) => ({
+  activeQuest: getActiveQuest(state),
+  isActiveQuestLoaded: getIsActiveQuestLoaded(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchActiveQuest(id) {
     dispatch(fetchActiveQuestAction(id));
   }
-});
-
-const mapStateToProps = (state) => ({
-  activeQuest: getActiveQuest(state),
-  isActiveQuestLoaded: getIsActiveQuestLoaded(state),
 });
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
@@ -41,7 +41,7 @@ const DetailedQuest = (props) => {
   }
 
   if(activeQuest === null) {
-    return (<Redirect to={APP_ROUTE.notFound}/>);
+    return (<Redirect to={AppRoute.NotFound}/>);
   }
 
   const {coverImg, title, type, duration, peopleCount, level, description} = activeQuest;

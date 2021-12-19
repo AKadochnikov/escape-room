@@ -1,32 +1,32 @@
-import { ACTION_TYPE } from '../const';
+import { ActionType } from '../const';
 
 export const loadQuests = (quests) => ({
-  type: ACTION_TYPE.loadQuests,
+  type: ActionType.LoadQuests,
   payload: {
     quests,
   }
 })
 
 export const changeQuestType = (type) => ({
-  type: ACTION_TYPE.changeQuestType,
+  type: ActionType.ChangeQuestType,
   payload: {
     type,
   },
 })
 
 export const loadActiveQuest = (quest) => ({
-  type: ACTION_TYPE.loadActiveQuest,
+  type: ActionType.LoadActiveQuest,
   payload: {
     quest,
   }
 })
 
 export const resetActiveQuest = () => ({
-  type: ACTION_TYPE.resetActiveQuest,
+  type: ActionType.ResetActiveQuest,
 })
 
 export const updatePostOrderStatus = (status) => ({
-  type: ACTION_TYPE.updatePostOrderStatus,
+  type: ActionType.UpdatePostOrderStatus,
   payload: {
     status,
   }

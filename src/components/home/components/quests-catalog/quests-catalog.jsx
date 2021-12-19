@@ -11,16 +11,15 @@ import { getFilteredQuests, getQuestType } from '../../../../store/data/selector
 import { connect } from 'react-redux';
 import { changeQuestType } from '../../../../store/actions';
 
+const mapStateToProps = (state) => ({
+  quests: getFilteredQuests(state),
+  type: getQuestType(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   changeType(evt) {
     dispatch(changeQuestType(evt.currentTarget.dataset.type));
   }
-});
-
-const mapStateToProps = (state) => ({
-  quests: getFilteredQuests(state),
-  type: getQuestType(state),
 });
 
 const connector = connect(mapStateToProps, mapDispatchToProps);

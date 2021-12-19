@@ -10,7 +10,7 @@ import Contacts from 'components/contacts/contacts';
 import Home from 'components/home/home';
 import { appTheme } from './common';
 import * as S from './app.styled';
-import { APP_ROUTE } from '../../const';
+import { AppRoute } from '../../const';
 import NotFound from '../not-found/not-found';
 import { getIsDataLoaded } from '../../store/data/selectors';
 import Loading from '../loading/loading';
@@ -35,13 +35,13 @@ const App = (props) => {
       <S.GlobalStyle />
       <Router>
         <Switch>
-          <Route exact path={APP_ROUTE.detailedQuest}>
+          <Route exact path={`${AppRoute.DetailedQuest}/:id`}>
             <DetailedQuest />
           </Route>
-          <Route exact path={APP_ROUTE.contacts}>
+          <Route exact path={AppRoute.Contacts}>
             <Contacts />
           </Route>
-          <Route exact path={APP_ROUTE.home}>
+          <Route exact path={AppRoute.Home}>
             <Home />
           </Route>
           <Route>

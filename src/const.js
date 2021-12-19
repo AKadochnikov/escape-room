@@ -6,14 +6,14 @@ export const LOCATION = {
   latitude: 59.96815,
   longitude: 30.31650,
   zoom: 50,
-}
+};
 
-export const APP_ROUTE = {
-  home: '/',
-  quest: '/quest',
-  contacts: '/contacts',
-  notFound: '/404',
-  detailedQuest: '/quest/:id'
+export const AppRoute = {
+  Home: '/',
+  Quest: '/quest',
+  Contacts: '/contacts',
+  NotFound: '/404',
+  DetailedQuest: '/detailed-quest'
 };
 
 export const QUEST = {
@@ -41,25 +41,25 @@ export const QUEST = {
     name: 'sci-fi',
     russian: 'Sci-fi'
   },
-}
+};
 
-export const ACTION_TYPE = {
-  loadQuests: 'data/loadQuests',
-  changeQuestType: 'user/changeQuestType',
-  loadActiveQuest: 'data/loadActiveQuest',
-  resetActiveQuest: 'data/resetActiveQuest',
-  updatePostOrderStatus: 'data/updatePostOrderStatus',
-}
+export const ActionType = {
+  LoadQuests: 'data/loadQuests',
+  ChangeQuestType: 'user/changeQuestType',
+  LoadActiveQuest: 'data/loadActiveQuest',
+  ResetActiveQuest: 'data/resetActiveQuest',
+  UpdatePostOrderStatus: 'data/updatePostOrderStatus',
+};
 
-export const NAME_SPACE = {
-  data: 'DATA',
-}
+export const NameSpace = {
+  Data: 'DATA',
+};
 
-export const API_ROUTE = {
-  quests: 'http://localhost:3001/quests',
-  currentQuest: 'http://localhost:3001/quests/',
-  postOrder: 'http://localhost:3001/orders',
-}
+export const ApiRoute = {
+  Quests: 'http://localhost:3001/quests',
+  CurrentQuest: 'http://localhost:3001/quests/',
+  PostOrder: 'http://localhost:3001/orders',
+};
 
 export const LEVELS = {
   easy: {
@@ -74,14 +74,13 @@ export const LEVELS = {
     name: 'hard',
     russian: 'Сложный',
   },
-}
+};
 
-export const POST_ORDER_STATUS = {
-  posting: 'posting',
-  ready: 'ready',
-  success: 'success',
-}
-
+export const PostOrderStatus = {
+  Posting: 'posting',
+  Ready: 'ready',
+  Success: 'success',
+};
 
 
 

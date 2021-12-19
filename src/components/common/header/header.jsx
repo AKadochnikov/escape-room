@@ -1,7 +1,6 @@
 import logo from 'assets/img/logo.svg';
 import * as S from './header.styled';
-import { APP_ROUTE } from '../../../const';
-
+import { AppRoute } from '../../../const';
 
 const Header = (props) => {
   const {activeLink} = props;
@@ -15,7 +14,7 @@ const Header = (props) => {
         <S.Navigation>
           <S.Links>
             <S.LinkItem>
-                <S.Link $isActiveLink={activeLink === APP_ROUTE.home? true: false} to={APP_ROUTE.home}>
+                <S.Link $isActiveLink={activeLink === AppRoute.Home? true: false} to={AppRoute.Home}>
                 Квесты
                 </S.Link>
             </S.LinkItem>
@@ -32,7 +31,7 @@ const Header = (props) => {
               <S.Link to="#">Акции</S.Link>
             </S.LinkItem>
             <S.LinkItem>
-                <S.Link $isActiveLink={activeLink === APP_ROUTE.contacts? true : false} to={APP_ROUTE.contacts}>
+                <S.Link $isActiveLink={activeLink === AppRoute.Contacts? true : false} to={AppRoute.Contacts}>
                   Контакты
                 </S.Link>
             </S.LinkItem>

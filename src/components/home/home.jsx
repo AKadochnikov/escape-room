@@ -6,10 +6,10 @@ import {
 } from 'components/common/common';
 import { QuestsCatalog } from './components/components';
 import * as S from './home.styled';
-import { APP_ROUTE } from '../../const';
+import { AppRoute } from '../../const';
 
 const HomePage = () => (
-  <MainLayout activeLink={APP_ROUTE.home}>
+  <MainLayout activeLink={AppRoute.Home}>
     <S.Main forwardedAs="main">
       <PageHeading>
         <PageTitle>Выберите тематику</PageTitle>

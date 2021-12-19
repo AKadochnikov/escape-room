@@ -2,14 +2,14 @@ import * as S from './quest-card.styled';
 import { ReactComponent as IconPerson } from '../../../../../assets/img/icon-person.svg';
 import { ReactComponent as IconPuzzle } from '../../../../../assets/img/icon-puzzle.svg';
 import { humanizeLevel } from '../../../../../utils';
-import { APP_ROUTE } from '../../../../../const';
+import { AppRoute } from '../../../../../const';
 
 const QuestCard = (props) => {
   const {item} = props;
   const level = humanizeLevel(item.level);
   return (
     <S.QuestItem>
-      <S.QuestItemLink to={`${APP_ROUTE.quest}/${item.id}`}>
+      <S.QuestItemLink to={`${AppRoute.DetailedQuest}/${item.id}`}>
         <S.Quest>
           <S.QuestImage
             src={item.coverImg}
