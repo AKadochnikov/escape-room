@@ -21,7 +21,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchActiveQuest(id) {
     dispatch(fetchActiveQuestAction(id));
-  }
+  },
 });
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
@@ -34,7 +34,7 @@ const DetailedQuest = (props) => {
 
   useEffect(() => fetchActiveQuest(currentId), [currentId, fetchActiveQuest]);
 
-  if (!isActiveQuestLoaded) {
+  if (!isActiveQuestLoaded || activeQuest === undefined) {
     return (
       <Loading/>
     );

@@ -18,6 +18,10 @@ export const fetchActiveQuestAction = (id) =>
   dispatch(resetActiveQuest());
   fetch(`${ApiRoute.CurrentQuest}${id}`)
     .then((response) => {
+      if(!response.ok){
+        dispatch(loadActiveQuest(null));
+        return;
+      }
       return response.json();
     })
     .then((data) => {
